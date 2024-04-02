@@ -1,0 +1,13 @@
+GET http://localhost:4004/EmployeeSrv2/addres HTTP/1.1
+
+
+###
+POST http://localhost:4004/EmployeeSrv2/addres HTTP/1.1
+Content-Type:application/json
+
+{
+      "door_num"  : "1-220",
+      "street"    :"james street",
+      "village"   :"jkpur",
+      "city"      : "kakinada" 
+}
