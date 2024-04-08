@@ -1,0 +1,3 @@
+id,fname,lname,salary,Email,Mobile,full_address_ID,Department_ID,Designation_ID,
+f7b3b2b1-1b89-4b9a-a3dc-10a2f58d3e36,priyathama,subhash,10000,priyatham123@gamil.com,+91 8886725925,9c3a6e84-f0dc-11ee-9270-325096b39f48,dba6c1c6-f0e1-11ee-a50c-325096b39f47,9c3a6e84-f0dc-11ee-9270-325096b39f47
+f7b3b2b1-1b89-4b9a-a3dc-10a2f58d3e33,subhash,priyatham,20000,subhash123@gamil.com,+91 7337223043,24b1d772-568f-4523-9daa-c31ac6be2519,dba6c1c6-f0e1-11ee-a50c-325096b39k58,9c3a6e84-f0fc-11ee-9270-325096b39h47

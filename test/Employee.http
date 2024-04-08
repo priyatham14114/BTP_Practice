@@ -1,0 +1,30 @@
+###
+GET http://localhost:4004/EmployeeSrv/address HTTP/1.1
+
+
+
+###
+POST http://localhost:4004/EmployeeSrv/address HTTP/1.1
+Content-Type:application/json
+
+{
+      
+      "door_num"        : "1-330",
+      "street"          :"hittler street",
+      "village"         :"miyapur",
+      "city"            : "kkd",
+      "employee_ID"     : "f7b3b2b1-1b89-4b9a-a3dc-10a2f58d3e33"
+
+}
+
+###
+GET http://localhost:4004/EmployeeSrv/address HTTP/1.1
+
+
+######## exapansion of address
+###
+GET http://localhost:4004/EmployeeSrv/employee?$expand=full_address HTTP/1.1
+
+######## filter method
+###
+GET http://localhost:4004/EmployeeSrv/employee?$expand=full_address&$filter=fname eq 'subhash' HTTP/1.1
