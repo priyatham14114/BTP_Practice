@@ -1,17 +1,18 @@
 _schema-version: '3.1'
-ID: CAP_APP
+ID: cap_app
 version: 1.0.0
-description: "A simple CAP project."
+description: "Welcome to your new project."
 parameters:
   enable-parallel-deployments: true
 build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm ci
+        - npm install
         - npx cds build --production
+        - npx -p @sap/cds-dk cds build --production
 modules:
-  - name: CAP_APP-srv
+  - name: cap_app-srv
     type: nodejs
     path: gen/srv
     parameters:
@@ -23,18 +24,18 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      - name: CAP_APP-db
-      - name: CAP_APP-auth
+      - name: cap_app-db
+      - name: cap_app-auth
 
-  - name: CAP_APP-db-deployer
+  - name: cap_app-db-deployer
     type: hdb
     path: gen/db
     parameters:
       buildpack: nodejs_buildpack
     requires:
-      - name: CAP_APP-db
+      - name: cap_app-db
 
-  - name: CAP_APP
+  - name: cap_app
     type: approuter.nodejs
     path: app/router
     parameters:
@@ -48,20 +49,20 @@ modules:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
           forwardAuthToken: true
-      - name: CAP_APP-auth
+      - name: cap_app-auth
 
 resources:
-  - name: CAP_APP-db
+  - name: cap_app-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
-  - name: CAP_APP-auth
+  - name: cap_app-auth
     type: org.cloudfoundry.managed-service
     parameters:
       service: xsuaa
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: CAP_APP-${org}-${space}
+        xsappname: cap_app-${org}-${space}
         tenant-mode: dedicated
